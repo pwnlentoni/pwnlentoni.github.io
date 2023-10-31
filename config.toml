@@ -7,9 +7,13 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
-theme = "anemone"
+theme = "anatole-zola"
 
 default_language = "en"
+
+taxonomies = [
+  { name = "tags" }
+]
 
 [languages.en]
 weight = 1
@@ -17,6 +21,16 @@ title = "pwnlentoni"
 languageName = "English"
 languageCode = "en"
 relativeURL = false
+[languages.en.translations]
+language_name = "English"
+about = "About"
+home = "Home"
+tags = "Tags"
+archive = "Archive"
+links = "Links"
+date_format = "%Y-%m-%d"
+next_page = "Next Page"
+last_page = "Last Page"
 
 
 [markdown]

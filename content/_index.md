@@ -1,11 +1,8 @@
 +++
+title = "index"
+template = "index.html"
+transparent = true
+sort_by = "date"
+paginate_by = 10
 +++
-
-# Home
-
-
-
-pwnlentoni ctf team
-
-![pwnlentoni logo](images/pwnlentoni.svg)
 
