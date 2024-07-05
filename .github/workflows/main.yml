@@ -1,0 +1,48 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install markdown-to-html-cli
+      run: npm i markdown-to-html-cli -g
+
+    - name: Convert Markdown to HTML
+      run: |
+        tempctf=""
+        for file in writeups/*.md; do
+          {
+            read -r title
+            read -r ctf
+            read -r authors
+          } < "$file"
+          tail -n +4 "$file" > "${file}.tmp" && mv "${file}.tmp" "$file"
+          if [ "$ctf" != "$tempctf" ]; then
+            tempctf=$ctf
+            echo "<h2>$ctf</h2>" >> writeups/index.html
+          fi
+          echo "<h3><a href=\"$(basename "${file%.md}.html")\">$title</a> by $authors</h3>" >> writeups/index.html
+          markdown-to-html --source "$file" --output "writeups/$(basename "${file%.md}.html")" --title "$title" --favicon "../img/logo.svg"
+          rm "$file"
+        done
+        echo "</div></div><div class=\"bottom-bg\"></div></body></html>" >> writeups/index.html
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GB_TOKEN }}
+        publish_dir: ./

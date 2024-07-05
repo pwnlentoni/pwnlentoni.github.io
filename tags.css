@@ -1,0 +1,79 @@
+.tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    padding: 0.5em;
+    border-radius: 1em;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    border: 1px solid black;
+    font-size: 0.7em;
+}
+
+.pwn {
+    background-color: #65E3E3;
+}
+
+.pwn::after {
+    content: 'pwn';
+}
+
+.web {
+    background-color: #F7A579;
+}
+
+.web::after {
+    content: 'web';
+}
+
+.crypto {
+    background-color: #61E7B1;
+}
+
+.crypto::after {
+    content: 'crypto';
+}
+
+.forensics {
+    background-color: #93DD57;
+}
+
+.forensics::after {
+    content: 'forensics';
+}
+
+.web3 {
+    background-color: #fb77ff;
+}
+
+.web3::after {
+    content: 'web3';
+}
+
+.rev {
+    background-color: #E899CA;
+}
+
+.rev::after {
+    content: 'rev';
+}
+
+.osint {
+    background-color: #E8E899;
+    /* #E899CA */
+}
+
+.osint::after {
+    content: 'osint';
+}
+
+.misc {
+    background-color: #E8DD57;
+}
+
+.misc::after {
+    content: 'misc';
+}

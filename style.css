@@ -1,0 +1,195 @@
+@font-face {
+    font-family: "monopik";
+    src: url('fonts/Monopik.otf');
+    font-weight: 1000;
+}
+
+html {
+    background-color: black;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'monopik', sans-serif;
+    letter-spacing: 0.2em;
+    background-image: url('img/tile.png');
+}
+
+.top-bg {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-image: url('img/top-bg.png');
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 150px;
+}
+
+.bottom-bg {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    background-image: url('img/bottom-bg.png');
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 150px;
+}
+
+.box {
+    background-color: black;
+    display: flex;
+}
+
+.box-content {
+    padding: 1em;
+    border-radius: 1em;
+    border: 1px solid black;
+    background-color: gainsboro;
+    flex: 1;
+}
+
+.box-content>div {
+    display: flex;
+}
+
+.box-content img {
+    width: 10em;
+    height: 10em;
+    margin-right: 1em;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    grid-gap: 1em;
+}
+
+.members-grid {
+    margin-top: 10em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#pwnlentoni {
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+#pwnlentoni h1 {
+    text-align: center;
+    font-size: 4em;
+}
+
+.full-width {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+.members-grid>*:nth-child(odd):nth-last-child(1) {
+    grid-column: span 2;
+}
+
+.col1 img,
+.col3 img {
+    width: 18vw;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footer img {
+    width: 2em;
+    height: 2em;
+}
+
+.footer .box-content {
+    text-align: center;
+}
+
+a:hover .box-content {
+    background-color: #01B1EE;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+img[src="img/logo.svg"] {
+    filter: invert(1);
+    transform: rotate(-45deg);
+}
+
+.socials {
+    display: flex;
+}
+
+.socials img {
+    width: 2em;
+    height: 2em;
+}
+
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #pwnlentoni {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .full-width {
+        grid-column: 1 / 2;
+    }
+
+    .members-grid>*:nth-child(odd):nth-last-child(1) {
+        grid-column: span 1;
+    }
+
+    .members-grid {
+        margin: 0 3em;
+    }
+
+    body {
+        font-size: 0.8em !important;
+    }
+
+    #pwnlentoni h1 {
+        font-size: 2em;
+    }
+
+    .footer {
+        margin: 0 3em;
+    }
+
+    .col1 img,
+    .col3 img {
+        width: 25vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .members-grid {
+        margin: 0 1em;
+    }
+
+    .col1 {
+        display: none;
+    }
+
+    .col1 img,
+    .col3 img {
+        width: 100vw;
+    }
+
+    .footer {
+        margin: 0 1em;
+    }
+}
