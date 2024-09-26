@@ -246,7 +246,6 @@ The only way we have to create a FileMetadata object and adding it to the db is 
 As it turns out, the answer is yes! Looking again at the FileMetadata write function 
 
 ```python
-
 def write(self, collection, content):
         if self.id in forbidden_ids and not self.init:
             raise ValueError("Use of forbidden id")
