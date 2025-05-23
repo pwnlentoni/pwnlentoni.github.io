@@ -77,3 +77,11 @@
 .misc::after {
     content: 'misc';
 }
+
+.sysadmin {
+    background-color: #80f71f;
+}
+
+.sysadmin::after {
+    content: 'sysadmin';
+}
