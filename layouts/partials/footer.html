@@ -1,0 +1,55 @@
+<footer id="site-footer" class="py-10 print:hidden">
+  {{/* Follow us */}}
+  <div class="flex items-center gap-3 pb-4 text-sm text-neutral-500 dark:text-neutral-400">
+    <span>Follow us on:</span>
+    <a
+      class="flex items-center hover:text-primary-500 dark:hover:text-primary-400"
+      href="https://x.com/pwnlentoni"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="X (Twitter)"
+      title="X (Twitter)">
+      {{ partial "icon.html" "x-twitter" }}
+    </a>
+  </div>
+  <div class="flex items-center justify-between">
+    {{/* Copyright */}}
+    {{ if .Site.Params.footer.showCopyright | default true }}
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+        {{- with replace .Site.Params.copyright "{ year }" now.Year }}
+          {{ . | markdownify }}
+        {{- else }}
+          &copy;
+          {{ now.Format "2006" }}
+          {{ .Site.Params.Author.name | markdownify }}
+        {{- end }}
+      </p>
+    {{ end }}
+
+    {{/* Theme attribution */}}
+    {{ if .Site.Params.footer.showThemeAttribution | default true }}
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        {{ $hugo := printf `<a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>`
+        }}
+        {{ $blowfish := printf `<a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>`
+        }}
+        {{ i18n "footer.powered_by" (dict "Hugo" $hugo "Theme" $blowfish) | safeHTML }}
+      </p>
+    {{ end }}
+  </div>
+  {{ if not .Site.Params.disableImageZoom | default true }}
+    <script>
+      mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: "rgba(0,0,0,0.5)",
+        scrollOffset: 0,
+      });
+    </script>
+  {{ end }}
+  {{/* Extend footer - eg. for extra scripts, etc. */}}
+  {{ if templates.Exists "partials/extend-footer.html" }}
+    {{ partialCached "extend-footer.html" . }}
+  {{ end }}
+</footer>

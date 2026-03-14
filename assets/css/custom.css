@@ -1,0 +1,57 @@
+html {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+}
+
+/* Logo styling */
+
+span.logo {
+    display: block;
+    max-width: fit-content;
+}
+
+span.logo svg {
+    height: 35px;
+    width: auto;
+    display: block;
+}
+
+
+
+/* Darker background in dark mode */
+html.dark body {
+    background-color: #101214;
+}
+
+html.dark .bg-neutral {
+    background-color: #101214 !important;
+}
+
+/* Darker floating navbar in dark mode */
+html.dark #menu-blur {
+    background-color: rgba(8, 10, 12, 0.75) !important;
+}
+
+/* Light mode fixes for noir color scheme */
+
+html:not(.dark) .bg-primary-100 {
+    background-color: rgb(230, 240, 245) !important;
+}
+
+html:not(.dark) .text-primary-400 {
+    color: rgb(80, 120, 145) !important;
+}
+
+html:not(.dark) .bg-primary-600 {
+    background-color: rgb(60, 90, 110) !important;
+}
+html:not(.dark) .hover\:\!bg-primary-500:hover {
+    background-color: rgb(80, 115, 135) !important;
+}
+
+html:not(.dark) .border-primary-400 {
+    border-color: rgb(80, 120, 145) !important;
+}
+html:not(.dark) .text-primary-700 {
+    color: rgb(40, 75, 95) !important;
+}

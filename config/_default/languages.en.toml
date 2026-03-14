@@ -2,7 +2,7 @@ disabled = false
 languageCode = "en"
 languageName = "English"
 weight = 1
-title = "Pwnlentoni"
+title = "pwnlentoni"
 
 [params]
 displayName = "EN"
@@ -11,7 +11,8 @@ rtl = false
 dateFormat = "2 January 2006"
 description = "Pwnlentoni page"
 copyright = "©2026 Pwnlentoni"
-logo = "Nuovo\\ progetto\\(2\\).png "
+logo = "img/logo.svg"
+secondaryLogo = "img/logo-light.svg"
 
 ["params.author"]
 name = ""
