@@ -1,6 +1,6 @@
 disabled = false
-languageCode = "en"
-languageName = "English"
+locale = "en-US"
+label = "English"
 weight = 1
 title = "pwnlentoni"
 
@@ -14,5 +14,5 @@ copyright = "©2026 Pwnlentoni"
 logo = "img/logo.svg"
 secondaryLogo = "img/logo-light.svg"
 
-["params.author"]
+[params.author]
 name = ""
