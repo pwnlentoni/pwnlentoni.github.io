@@ -1,0 +1,15 @@
+{
+    "name": "augusto",
+    "image": "img/authors/augusto.webp",
+    "social": [
+        {
+            "github": "https://github.com/augustozanellato/"
+        },
+        {
+            "linkedin": "https://www.linkedin.com/in/augusto-zanellato-aa854614b/"
+        },
+        {
+            "x-twitter": "https://x.com/auguzanellato"
+        }
+    ]
+}

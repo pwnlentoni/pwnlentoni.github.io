@@ -1,3 +1,7 @@
 baseURL = 'https://pwnlentoni.team/'
 locale = 'en-US'
 title = 'My New Hugo Project'
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
