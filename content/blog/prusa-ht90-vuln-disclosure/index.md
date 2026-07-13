@@ -1,7 +1,6 @@
 ---
 title: "From zero to RCE on Prusa HT90"
-# date: 2026-07-13
-date: 2026-07-08 # TODO:
+date: 2026-07-13
 draft: false
 # tags: ["Responsible disclosure"]
 categories: ["Responsible Disclosure"]
@@ -48,8 +47,7 @@ Here's the entropy plot of the archive, it's pretty clear that it's somehow encr
 
 Inside the `aes-key` file there was a 32 byte key and a 16 byte IV, so I did what any CTF player would do: I applied my guessing skills and figured out it was probably AES-256 in CBC mode.
 
-I tried to decrypt the image with `openssl enc -d -aes-256-cbc -K 9a267b04ba8c46276bfdd94e2c14eded368b1a605e6dd877c97e94e6b69f568c -iv aa3c19f61c34ba6892ccb994d776a8bd -in trilab-image-raspberrypi4.ext3.gz -out dec-trilab-image-raspberrypi4.ext3.gz` <!-- TODO: remove --> (note for Prusa: should I redact the key/iv here?)
-and it worked!
+I tried to decrypt the image with `openssl enc -d -aes-256-cbc -K 9a267b04ba8c46276bfdd94e2c14eded368b1a605e6dd877c97e94e6b69f568c -iv aa3c19f61c34ba6892ccb994d776a8bd -in trilab-image-raspberrypi4.ext3.gz -out dec-trilab-image-raspberrypi4.ext3.gz` <!-- TODO: (note for Prusa: should I redact the key/iv here?) --> and it worked!
 
 The entropy of the decrypted file is much more reasonable, it's still high because it's a gzip archive, but you can clearly spot that there are some dips.
 
@@ -324,7 +322,10 @@ The Prusa Security Team was mostly responsive and handled the disclosure process
 
 For the report I was awarded with a nice 3D printer upgrade, we agreed upon a Prusa Core One L, and they were kind enough to bundle it with some filament and a swag pack, so I'd like to publicly thank Prusa for their generosity and for their great handling of the disclosure process.
 
-> Totally unrelated rant: I have been using 3D printers for a couple years now, and I have always admired how open most printers are, with most of them running open source firmware and having a thriving community of users and developers. However, the recent trend of manufacturers locking down their printers and making them more closed source is really disappointing, especially when you consider Chinese manufacturers that are known for violating open source licenses and not contributing back to the community.
+> Totally unrelated rant: I have been using 3D printers for a couple years now, and I have always admired how open most printers are, with most of them running open source firmware and having a thriving community of users and developers.
+>
+> However, the recent trend of manufacturers locking down their printers and making them more closed source is really disappointing, especially when you consider Chinese manufacturers that are known for violating open source licenses and not contributing back to the community.
+>
 > In this regard, I really admire Prusa for being one of the few manufacturers that still embraces open source and actively contributes to the community, and I hope they continue to do so in the future.
 
 CVE IDs have been requested for the vulnerabilities, but they haven't been assigned yet, so I'll update this post once they are. <!--TODO-->
